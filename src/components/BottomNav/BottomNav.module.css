@@ -1,0 +1,46 @@
+.nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46px;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+}
+
+.icon {
+  position: relative;
+  opacity: 0.96;
+}
+
+.back {
+  width: 16px;
+  height: 16px;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  background: #ffffff;
+}
+
+.home {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.overview {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 2px;
+}
