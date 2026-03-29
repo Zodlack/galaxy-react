@@ -1,0 +1,80 @@
+.wrapper {
+  /* position: absolute; */
+  left: 18px;
+  bottom: 81px;
+  width: 58px;
+  /* height: 168px; */
+  height: 147px;
+  overflow: visible;
+}
+
+.fillTrack {
+  position: absolute;
+  left: 17px;
+  top: 0;
+  width: 32px;
+  height: 142px;
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #53ef8f 0%, #14e55b 35%, #08cb4a 100%);
+  box-shadow: 0 0 14px rgba(75, 255, 170, 0.45);
+  transform-origin: bottom;
+  transform: scaleY(var(--fill-scale, 0));
+  will-change: transform;
+  z-index: 1;
+}
+.fill:after{
+  /* position: absolute; */
+  content: '';
+  display: block;
+  background: #FFFFFF66;
+  height: 100%;
+  width: 14px;
+  z-index: 4;
+} 
+
+.fillTrackWin .fill,
+.fillWin {
+  background: linear-gradient(180deg, #52ff8f 0%, #10ea55 100%);
+  transition: transform 220ms ease-out;
+}
+
+.pointer {
+  position: absolute;
+  /* left: 7px; */
+  left: 16px;
+  transform: translate(-7px);
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+  z-index: 3;
+  will-change: bottom;
+}
+
+.pointerWin {
+  transition: bottom 220ms ease-out;
+}
+
+.frame {
+  position: relative;
+  width: 48px;
+  height: 155px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+  z-index: 2;
+}
+
+.frameActive {
+  filter: drop-shadow(0 0 10px rgba(77, 242, 255, 0.4));
+}
