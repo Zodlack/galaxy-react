@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Roboto Custom';
+  src: url('./assets/fonts/Roboto-Bold.woff2') format('woff2'),
+       url('./assets/fonts/Roboto-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'Roboto Custom', Arial, sans-serif;
+  color: #ffffff;
+  background: #1b0f45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(123, 65, 255, 0.28), transparent 30%),
+    linear-gradient(180deg, #372499 0%, #2b1481 32%, #231390 58%, #191483 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
