@@ -21,10 +21,12 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 
 function GameShell() {
 
-    // refs для анимации левой шкалы и таймера перехода между фазами
+  // refs для анимации левой шкалы и таймера перехода между фазами
+  // frameRef хранит id запроса на слудующий кадр
   const frameRef = useRef(0)
   const powerRef = useRef(0)
   const directionRef = useRef(1)
+  // храним id таймера
   const resolveTimeoutRef = useRef(null)
 
   // Основные состояния игры
@@ -71,6 +73,7 @@ function GameShell() {
       const delta = timestamp - last
       last = timestamp
 
+
       let current = powerRef.current
       let direction = directionRef.current
       // Скорость немного плавает, чтобы движение выглядело менее механическим
@@ -98,6 +101,8 @@ function GameShell() {
       powerRef.current = current
       directionRef.current = direction
       setPower(current)
+      
+      // после текущего кадра сразу просим браузер вызвать tick ещё раз на следующем кадре 
       frameRef.current = requestAnimationFrame(tick)
     }
 
@@ -207,6 +212,7 @@ function GameShell() {
       return
     }
 
+    // Захват силы
     const capturedPower = clamp(powerRef.current, 0, 1)
 
     cancelAnimationFrame(frameRef.current)
@@ -310,7 +316,7 @@ function computeTargetSegments(inputPower) {
   if (inputPower >= WIN_THRESHOLD) {
     return MAX_SEGMENTS
   }
-
+  // переводим значение силы в количество обычных сегментов
   return clamp(Math.round(inputPower * 6) + 1, 2, 6)
 }
 
